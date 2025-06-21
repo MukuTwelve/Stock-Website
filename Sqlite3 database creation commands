@@ -1,0 +1,4 @@
+these are the sqlite3 tables that were created
+CREATE TABLE user (id integer primary key autoincrement, username string(20), password string(80))
+CREATE TABLE search_history(id integer, ticker string(10), date_searched Datetime, ticker_price decimal(10,2))
+CREATE TABLE portfolio(id integer, ticker string(10), date_purchased Datetime, ticker_price decimal(10,2), amount integer, total_cost decimal(20,3))
