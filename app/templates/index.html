@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #7abdff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .message {
+            margin: 20px 0;
+            font-size: 0.85em;
+            color: #444;
+        }
+
+        .history {
+            margin-top: 20px;
+            font-family: monospace;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Lookup</h1>
+
+        <form method="POST" action="/submit">
+            <input type="text" name="Sname" placeholder="Enter stock symbol" required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        
+
+
+        
+
+        <a href="{{ url_for('routes.get_portfolio') }}">View Portfolio</a>
+
+        <div class="message">
+            {{ goodOutput | safe }}<br>
+            {{ errorMessage | safe }}
+        </div>
+        {% if plot_url %}
+        <h3>Stock Plot</h3>
+        <body>
+        
+            <img src="{{plot_url}}" alt="stockplot" width="300" height="300">
+        </body>
+        
+       
+        <br><br><br> 
+        {% endif %}
+
+        <form method="POST" action="/get_history">
+            <button type="submit">Get Search History</button>
+        </form>
+
+        <div class="history">
+            {{ out| safe }}
+        </div>
+        <a href="{{ url_for('auth.login') }}">logout</a>
+        <br>
+        <a href="{{ url_for('routes.prompt_ai') }}">AI</a>
+        
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+
+cd ./instance
+pwd
+sqlite3 database.db
+select * from user
+   ...> ;
+create table portfolio(id integer, ticker string(10), date_purchased Datetime, ticker_price decimal(10,2), amount integer, total_cost decimal(20,3))
+amount integer, total_cost decimal(20,3));
+which python3
+python3 -m pip show openai
+
+SELECT ticker, date_searched, ticker_price
+FROM search_history
+WHERE date_searched BETWEEN date('now', '-7 days') AND date('now');
+
+SELECT ticker, date_searched, ticker_price FROM search_history WHERE date(date_searched) = date('now', '-1 day');

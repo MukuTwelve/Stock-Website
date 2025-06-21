@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: #f4f6f8;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+    
+            .container {
+                background: white;
+                padding: 40px;
+                border-radius: 16px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+                text-align: center;
+                width: 90%;
+                max-width: 400px;
+            }
+    
+            h1 {
+                margin-bottom: 30px;
+                font-size: 2.5em;
+                color: #333;
+            }
+    
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+    
+            input[type="text"],
+            input[type="password"] {
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                font-size: 2em;
+                width: 100%;
+                box-sizing: border-box;
+            }
+    
+            input[type="submit"] {
+                padding: 12px;
+                background-color: #007BFF;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 2em;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+    
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+            .topic { font-size: 20px; text-decoration: none; }
+        </style>
+       <div class="container">
+        <h1>Login Page</h1>
+        <hr>
+
+
+        <small>
+            <small>
+                <small>
+                    <form method="POST" action="">
+                        {{form.hidden_tag()}}
+                        {{form.username}}
+                        {{form.password}}
+                        {{form.submit}}
+                    </form>
+                    
+                <a href="{{url_for('auth.signup')}}" class="topic">Dont have an account? sign up</a>
+                </small>
+            </small>
+        </small>
+        
+    </h1>
+    
+</body>
+</html>
