@@ -19,7 +19,7 @@ routes = Blueprint('routes', __name__)
 
 def chat_with_gemini(chat_log):
     
-    client = genai.Client(api_key="AIzaSyA0WzrG2UZYrKKc9SvhAir9oNYGQrimIVU")
+    client = genai.Client(api_key="Your API key here")
     
     response = client.models.generate_content(
         model="gemini-2.0-flash", contents= chat_log
